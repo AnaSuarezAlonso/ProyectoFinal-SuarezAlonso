@@ -1,0 +1,39 @@
+  [
+    {
+        "id":1,
+        "productName": "Bowl Andes",
+        "price": 16,
+        "image": "bowlandes"
+    },
+    {
+        "id":2,
+        "productName": "Jarra Condor",
+        "price": 12,
+        "image": "jarracondor"
+    },
+    {
+        "id":3,
+        "productName": "Bandeja Teapui",
+        "price": 9,
+        "image": "bandejateapui"
+    },
+    {
+        "id":5,
+        "productName": "Plato Patagonia",
+        "price": 18,
+        "image": "platopatagonia"
+    },
+    {
+        "id":4,
+        "productName": "Bandeja Andina",
+        "price": 12,
+        "image": "bandejaandina"
+    },
+    {
+        "id":6,
+        "productName": "Rodillo Paine",
+        "price": 15,
+        "image": "rodillopaine"
+    }
+  ]
+  

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clay & Craft</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <link href="./styles/main.css" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1 id="logo"><a href="#hero"><img src="./images/logo.png"></a></h1>
+      <nav>
+      <button id="open"><img src="./images/menu.png"></button>
+      <ul id="mainNav">
+        <button id="close"><img src="./images/close.png"></button>
+        <li class="menuButton"><a href="#about">Nosotros</a></li>
+        <li class="menuButton"><a href="#products">Colección</a></li>
+        <li class="menuButton"><a href="#contact">Contacto</a></li>
+      </ul>
+      <li id="cartButton">
+        <a><img src="./images/shopping-cart.svg" alt="shopping-cart"/></a>
+        <span id="bubble"></span>
+      </li>
+      <div id="cart" class="hidden">
+        <div class="title">
+          <div>
+            <h3>Carrito</h2>
+            <span id="totalProducts"></span>
+          </div>
+          <button id="closeCart"><img src="./images/close.png"></button>
+        </div>
+        <ul id="cartList">
+        </ul>
+        <div id="cartFooter">
+          <div>
+            <span>Total</span>
+            <span id="total"></span>
+          </div>
+          <div>
+            <button class="button" id="purchaseButton">Finalizar pedido</button>
+            <button id="emptyCartButton" class="secondaryButton">Vaciar carrito</button>
+          </div>
+        </div>
+      </div>
+      </nav>
+    </div>
+  </header>
+  <section id="hero">
+    <div class="container">
+      <div>
+        <h2>Nueva colección</h2>
+        <h1>Cerámica hecha con mimo especialmente para ti</h1>
+        <a class="button" href="#products">Compra ahora</a>
+      </div>
+    </div>
+  </section>
+  <section id="about" class="container">
+    <ul>
+      <li>
+        <img src="./images/about-1.png" alt="Hecho a mano">
+        <h3>Hecho a mano</h3>
+        <p>Artesanía única en cada pieza</p>
+      </li>
+      <li>
+        <img src="./images/about-2.png" alt="Diseño innovador">
+        <h3>Diseño innovador</h3>
+        <p>Estilo vanguardista en cada detalle.</p>
+      </li>
+      <li>
+        <img src="./images/about-3.png" alt="100% sostenible">
+        <h3>100% sostenible</h3>
+        <p>Responsabilidad ambiental en cada producto.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="products" class="container">
+    <h1>Descubre nuestra colección</h1>
+      <ul id="productGrid"></ul>
+  </section>
+
+  <section id="collection">
+    <img src="./images/claypieces.png" alt="Clay pieces">
+  </section>
+
+  <section id="contact" class="container">
+    <div>
+      <h2>Síguenos</h2>
+      <p>
+        ¡Descubre nuestro mundo de cerámica en las redes sociales! Síguenos para obtener acceso exclusivo a nuevas piezas, inspiración para decorar y promociones especiales. Únete a nuestra comunidad de amantes del arte cerámico.</p>
+    </div>
+    <ul>
+      <li><a href="https://www.instagram.com/"><img src="./images/instagram.png" alt="Instagram"></a></li>
+      <li><a href="https://mail.google.com/"><img src="./images/google.png" alt="Google"></a></li>
+      <li><a href="https://www.facebook.com/"><img src="./images/facebook.png" alt="Facebook"></a></li>
+    </ul>
+  </section>
+  <div id="orderConfirmation" class="hidden">
+    <div id="overlay"></div>
+    <div id="modalContainer">
+      <div class="modal">
+        <div id="modalHeader">
+          <h1>Finalizar pedido</h1>
+          <button id="closeOrder"><img src="./images/close.png"></button>
+        </div>
+        <div class="content">
+          <div id="formSection">
+            <h2>Introduzca sus datos</h2>
+            <p>¡Ya está todo casi listo! Antes de finalizar la compra necesitamos tus datos de envío</p>
+            <form id="form">
+              <div id="formContainer">
+                <div class="row">
+                  <div>
+                    <label for="userName">Nombre:*</label>
+                    <input type="text" id="userName" name="userName" placeholder="Ingrese nombre">
+                    <span class="error-message"></span>
+                  </div>
+                  <div>
+                    <label for="surname">Apellidos:*</label>
+                    <input type="text" id="surname" name="surname" placeholder="Ingrese apellidos">
+                    <span class="error-message"></span>
+                  </div>
+                </div>
+                <div class="formDiv">
+                  <label for="direction">Dirección:*</label>
+                  <input type="text" id="direction" name="direction" placeholder="Ingrese su dirección">
+                  <span class="error-message"></span>
+                </div>
+                <div class="row">
+                  <div>
+                    <label for="mail">Email:*</label>
+                    <input type="text" id="mail" name="mail" placeholder="Ingrese su email">
+                    <span class="error-message"></span>
+                  </div>
+                  <div>
+                    <label for="phoneNumber">Teléfono:(opcional)</label>
+                    <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Ingrese su número de teléfono">
+                    <span class="error-message"></span>
+                  </div>
+                </div>
+              </div>
+              <button class="button" type="submit">Finalizar compra</button>
+            </form>
+            </div>
+          <div id="resumeSection">
+            <h2>Resumen de su carrito</h2>
+            <ul id="ordersList"> 
+            </ul>
+            <div id="ordersFooter">
+              <div>
+                <span>Total</span>
+                <span id="totalOrders"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div  class="container">
+      <h1 id="logo"><img src="./images/logo.png"></h1>
+      <span>© Copyright 2024 Clay & Craft</span>
+    </div>
+  </footer>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="js/itemClass.js"></script>  
+  <script src="js/productoClass.js"></script>  
+  <script src="js/main.js"></script>  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>  
+  <script src="js/form.js"></script>
+</body>
+</html>
