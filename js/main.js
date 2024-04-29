@@ -21,17 +21,21 @@ function printProducts(stock) {
     productItem.innerHTML = ` 
       <div class="figure">
         <img src="./images/${product.image}.png" alt="${product.productName}">
-        <div class="overlay"><button class="btnPrincipal addToCartButton">Añadir al carrito</button></div>
       </div>
-      <h2>${product.productName}</h2>
-      <span>${product.price}€</span>`
+      <div id="productContent">
+        <div>
+          <h2>${product.productName}</h2>
+          <span>${product.price}€</span>
+        </div>        
+        <button class="btnPrincipal addToCartButton">Añadir</button>
+      </div>`
     productGrid.appendChild(productItem)
     
     productItem.querySelector('.addToCartButton').addEventListener('click', (e)=> {
       let button = e.currentTarget
       button.innerText = 'Añadido'
       setTimeout(()=>{
-        button.innerText = 'Añadir al carrito'
+        button.innerText = 'Añadir'
       },1000)
       addToCart(product)
     })
@@ -54,6 +58,25 @@ function addToCart(product){
   } else {
     cart.push(new Item(product, 1))
   }
+  Toastify({
+    text: "Se ha añadido un producto",
+    duration: 1500,
+    close: true,
+    gravity: "top",
+    position: "right",
+    stopOnFocus: true,
+    style: {
+      background: "#000000",
+      borderRadius: "0.25rem",
+      fontSize: "0.9rem",
+      display: "flex",
+      gap: "0.75rem",
+      padding: "1rem 1.5rem",
+      maxWidth:"calc(60% - 20px)"
+    },
+    onClick: function(){} // Callback after click
+  }).showToast();
+
   printCart(cart)
 }
 
@@ -74,8 +97,8 @@ function restFromCart(product){
   }
 
   Toastify({
-    text: "El producto fue eliminado",
-    duration: 2000,
+    text: "Se ha eliminado un producto",
+    duration: 1500,
     close: true,
     gravity: "top",
     position: "right",
@@ -86,7 +109,8 @@ function restFromCart(product){
       fontSize: "0.9rem",
       display: "flex",
       gap: "0.75rem",
-      padding: "1rem 1.5rem"
+      padding: "1rem 1.5rem",
+      maxWidth:"calc(60% - 20px)"
     },
     onClick: function(){} // Callback after click
   }).showToast();
@@ -109,7 +133,7 @@ function deleteFromCart(product){
 
   Toastify({
     text: "El producto fue eliminado",
-    duration: 2000,
+    duration: 1500,
     close: true,
     gravity: "top",
     position: "right",
@@ -120,7 +144,8 @@ function deleteFromCart(product){
       fontSize: "0.9rem",
       display: "flex",
       gap: "0.75rem",
-      padding: "1rem 1.5rem"
+      padding: "1rem 1.5rem",
+      maxWidth:"calc(60% - 20px)"
     },
     onClick: function(){} // Callback after click
   }).showToast();
