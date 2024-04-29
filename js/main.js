@@ -21,13 +21,13 @@ function printProducts(stock) {
     productItem.innerHTML = ` 
       <div class="figure">
         <img src="./images/${product.image}.png" alt="${product.productName}">
-        <div class="overlay"><button id='addToCartButton' class="btnPrincipal">Añadir al carrito</button></div>
+        <div class="overlay"><button class="btnPrincipal addToCartButton">Añadir al carrito</button></div>
       </div>
       <h2>${product.productName}</h2>
       <span>${product.price}€</span>`
     productGrid.appendChild(productItem)
     
-    productItem.getElementsByTagName('button')[0].addEventListener('click', (e)=> {
+    productItem.querySelector('.addToCartButton').addEventListener('click', (e)=> {
       let button = e.currentTarget
       button.innerText = 'Añadido'
       setTimeout(()=>{
@@ -281,11 +281,10 @@ function hideMenu() {
   mainNav.style.right='-100%'
 }
 
-let menuButtons = document.getElementsByClassName('menuButton')
-for (let i = 0; i < menuButtons.length; i++) {
-  menuButtons[i].addEventListener('click', hideMenu, false);
-}
-
+const menuButtons = Array.from(document.getElementsByClassName('menuButton'))
+menuButtons.forEach(menuButton => {
+  menuButton.addEventListener('click', hideMenu)
+})
 
 //Toggle cart div
 let cartButton = document.querySelector('#cartButton')
